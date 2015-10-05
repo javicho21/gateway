@@ -1,0 +1,10 @@
+name=Jarova Service for Text persisence
+class=com.jarova.mqtt.CSVPersistence
+interval=0
+enabled=true
+text.filename=/home/azhang/logs/board1.txt
+
+
+
+
+
