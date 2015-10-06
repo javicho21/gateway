@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Inject;
+import org.surfthing.Kernel;
 import org.surfthing.service.mqtt.MQTTController;
 
 /**
@@ -18,13 +19,17 @@ import org.surfthing.service.mqtt.MQTTController;
  * @author vsenger
  */
 public class JarovaService extends MQTTController {
+
     public String LOG_QUEUE = MQTT_QUEUE + "/log";
     @Inject
     CSVPersistence persistence;
-    
-    
+
     @Override
     public void processMessage(String msg) {
+        if (persistence == null) {
+            persistence = (CSVPersistence) Kernel.getInstance().getService(CSVPersistence.class);
+        }
+
         System.out.println("--->Write Message to TXT log " + msg);
         System.out.println("obj persitence " + persistence);
         persistence.saveLog(msg);
