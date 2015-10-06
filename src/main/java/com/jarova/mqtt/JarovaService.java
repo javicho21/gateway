@@ -26,6 +26,7 @@ public class JarovaService extends MQTTController {
     @Override
     public void processMessage(String msg) {
         System.out.println("--->Write Message to TXT log " + msg);
+        System.out.println("obj persitence " + persistence);
         persistence.saveLog(msg);
         System.out.println("--->Log OK");
 
