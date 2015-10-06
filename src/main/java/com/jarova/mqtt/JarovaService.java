@@ -23,13 +23,17 @@ public class JarovaService extends MQTTController {
     public String LOG_QUEUE = MQTT_QUEUE + "/log";
     @Inject
     CSVPersistence persistence;
-
+    @Inject
+    RabbitMQ rabbit;
+    
     @Override
     public void processMessage(String msg) {
         if (persistence == null) {
             persistence = (CSVPersistence) Kernel.getInstance().getService(CSVPersistence.class);
         }
-
+        if(rabbit==null) {
+            rabbit = (RabbitMQ) Kernel.getInstance().getService(RabbitMQ.class);
+        }
         System.out.println("--->Write Message to TXT log " + msg);
         System.out.println("obj persitence " + persistence);
         persistence.saveLog(msg);
@@ -37,7 +41,7 @@ public class JarovaService extends MQTTController {
 
         System.out.println("--> Sending Message to Rabbit Queue " + msg);
         try {
-            RabbitMQConnector.getInstance().send(msg);
+            rabbit.send(msg);
         } catch (IOException ex) {
             Logger.getLogger(JarovaService.class.getName()).log(Level.SEVERE, null, ex);
         }
