@@ -27,7 +27,7 @@
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
             <version>2.13.2</version>
-                        <scope>provided</scope>
+            <scope>provided</scope>
 
         </dependency>
  
@@ -35,6 +35,8 @@
             <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
             <version>3.5.3</version>
+            <scope>provided</scope>
+
         </dependency>
         <!--<dependency>
             <groupId>org.influxdb</groupId>
@@ -44,20 +46,7 @@
     </dependencies>
     <build>
         <plugins>
-            <plugin>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>process-sources</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${targetdirectory}</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
