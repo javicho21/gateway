@@ -57,7 +57,7 @@ public class RabbitMQ extends Service {
         if (getConfig().getProperty("queue") != null) {
             QUEUE = getConfig().getProperty("queue");
         }
-
+        fixConnection();
     }
 
     public void fixConnection() {
