@@ -16,7 +16,7 @@ import org.surfthing.Service;
 
 /**
  *
- * @author azhang
+ * @author vsenger
  */
 public class RabbitMQ extends Service {
 
