@@ -5,7 +5,6 @@
  */
 package com.jarova.mqtt;
 
-import static com.jarova.mqtt.CSVPersistence.TEXT_FILENAME;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
