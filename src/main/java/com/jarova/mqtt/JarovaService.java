@@ -46,6 +46,7 @@ public class JarovaService extends MQTTController {
             Logger.getLogger(JarovaService.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println("--> Rabbit OK");
+       /*
         System.out.println("--> Sending Message to MongoB " + msg);
         try {
             MongoDB.save("sensors", msg, new Date(), "database1");
@@ -53,6 +54,7 @@ public class JarovaService extends MQTTController {
             Logger.getLogger(JarovaService.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println("--> MongoB OK");
+               */
     }
 
 }
