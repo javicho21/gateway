@@ -30,7 +30,7 @@ public class RabbitMQ extends Service {
     Channel channel;
 
     public void send(String msg) throws IOException {
-        System.out.println("Sending Rabbit MQ");
+        System.out.println("Sending Rabbit MQ1");
         if(channel==null) fixConnection();
         channel.basicPublish("", QUEUE, null, msg.getBytes());
         System.out.println(" [x] Sent '" + msg + "'");
