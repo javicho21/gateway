@@ -36,7 +36,7 @@ public class RabbitMQ extends Service {
             fixConnection();
         }else{
             System.out.println("Conexao com RabbitMQ esta OK");
-            fixConnection();
+           // fixConnection();
         }
         
         channel.basicPublish("", QUEUE, null, msg.getBytes());
@@ -72,6 +72,10 @@ public class RabbitMQ extends Service {
             factory.setUsername(USER_NAME);
             factory.setPassword(PASSWORD);
             factory.setHost(HOST_NAME);
+            
+            //adicionado para teste recover;
+            factory.setAutomaticRecoveryEnabled(true);
+            
             Connection connection = factory.newConnection();
             channel = connection.createChannel();
             channel.queueDeclare(QUEUE, true, false, false, null);
