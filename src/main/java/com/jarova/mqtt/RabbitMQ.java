@@ -71,7 +71,7 @@ public class RabbitMQ extends Service {
             factory.setHost(HOST_NAME);
             Connection connection = factory.newConnection();
             channel = connection.createChannel();
-            channel.queueDeclare(QUEUE, true, false, false, null);
+            channel.queueDeclare(QUEUE, false, false, false, null);
             System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
         } catch (IOException ex) {
             Logger.getLogger(RabbitMQ.class.getName()).log(Level.SEVERE, null, ex);
