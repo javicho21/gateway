@@ -36,6 +36,7 @@ public class RabbitMQ extends Service {
             fixConnection();
         }else{
             System.out.println("Conexao com RabbitMQ esta OK");
+            fixConnection();
         }
         
         channel.basicPublish("", QUEUE, null, msg.getBytes());
