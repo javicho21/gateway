@@ -30,7 +30,7 @@ public class RabbitMQ extends Service {
     Channel channel;
 
     public void send(String msg) throws IOException {
-        System.out.println("Sending Rabbit MQxxx");
+        System.out.println("Sending Rabbit MQ");
         
         // o "if" abaixo aparentemente esta sem funcao, pois mesmo sem conexao com o
         // RabbitMQ o channel nao fica null, 
