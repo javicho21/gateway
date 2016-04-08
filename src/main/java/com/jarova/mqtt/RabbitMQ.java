@@ -31,12 +31,14 @@ public class RabbitMQ extends Service {
 
     public void send(String msg) throws IOException {
         System.out.println("Sending Rabbit MQxxx");
+        
+        // o "if" abaixo aparentemente esta sem funcao, pois mesmo sem conexao com o
+        // RabbitMQ o channel nao fica null, 
         if(channel==null) {
             System.out.println("Restabelecendo conexao com RabbitMQ");
             fixConnection();
         }else{
             System.out.println("Conexao com RabbitMQ esta OK");
-           // fixConnection();
         }
         
         channel.basicPublish("", QUEUE, null, msg.getBytes());
@@ -73,7 +75,7 @@ public class RabbitMQ extends Service {
             factory.setPassword(PASSWORD);
             factory.setHost(HOST_NAME);
             
-            //adicionado para teste recover;
+            //adicionado para que a conexao seja recuperada em caso de falha de rede;
             factory.setAutomaticRecoveryEnabled(true);
             
             Connection connection = factory.newConnection();
