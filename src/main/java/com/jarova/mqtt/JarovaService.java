@@ -34,12 +34,12 @@ public class JarovaService extends MQTTController {
         if(rabbit==null) {
             rabbit = (RabbitMQ) Kernel.getInstance().getService(RabbitMQ.class);
         }
-        System.out.println("--->Write Message to TXT log " + msg);
+        System.out.println("--->Write Message to TXT log X*X" + msg);
         System.out.println("obj persitence " + persistence);
         persistence.saveLog(msg);
         System.out.println("--->Log OK");
 
-        System.out.println("--> Sending Message to Rabbit QueueXXX " + msg);
+        System.out.println("--> Sending Message to Rabbit QueueX*X " + msg);
         try {
             rabbit.send(msg);
         } catch (IOException ex) {
